@@ -1,0 +1,48 @@
+﻿@model SistemaDeLanche.BLL.Models.Lanche
+
+@{
+    ViewData["Title"] = "Criar lanche";
+}
+
+<div class="formulario">
+    <div class="collection with-header">
+        <form asp-action="Create">
+            <div class="collection-header blue darken-3">
+                <h1 class="white-text">Criar lanches</h1>
+            </div>
+
+            <div class="collection-item">
+                <div asp-validation-summary="ModelOnly" class="red-text text-darken-4"></div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="NomeLanche" class="validate" id="nome" />
+                        <label id="nome">Nome do lanche</label>
+                        <span class="red-text text-darken-4" asp-validation-for="LancheId"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="Ingredientes" class="validate" id="nome" />
+                        <label id="nome">Ingredientes</label>
+                        <span class="red-text text-darken-4" asp-validation-for="LancheId"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="ValorLanche" type="text" class="validate" id="valor" />
+                        <label id="valor">Valor do lanche</label>
+                        <span class="red-text text-darken-4" asp-validation-for="ValorLanche"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collection-item">
+                <button type="submit" class="btn-small blue darken-3">Criar</button> &emsp;
+                <a asp-action="Index" asp-controller="Lanche">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

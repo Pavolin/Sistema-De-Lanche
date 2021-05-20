@@ -1,0 +1,86 @@
+﻿@model SistemaDeLanche.BLL.Models.Ingrediente
+
+@{
+    ViewData["Title"] = "Atualizar ingrediente";
+}
+
+<div class="formulario">
+    <div class="collection with-header">
+        <form asp-action="Edit">
+            <div class="collection-header blue darken-3">
+                <h1 class="white-text">Atualizar ingrediente</h1>
+            </div>
+
+            <div class="collection-item">
+                <div asp-validation-summary="ModelOnly" class="red-text text-darken-4"></div>
+
+                <input type="hidden" asp-for="IngredienteId" />
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="NomeIngrediente" type="text" class="validate" id="nome" />
+                        <label asp-for="NomeIngrediente" id="nome"></label>
+                        <span class="red-text text-darken-4" asp-validation-for="NomeIngrediente"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input asp-for="ValorIngrediente" type="text" class="validate" id="data" />
+                        <label asp-for="ValorIngrediente" id="data"></label>
+                        <span class="red-text text-darken-4" asp-validation-for="ValorIngrediente"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collection-item">
+                <button type="submit" class="btn-small blue darken-3">Atualizar</button> &emsp;
+                <a asp-action="Index" asp-controller="Ingrediente">Voltar</a>
+            </div>
+        </form>
+    </div>
+    <div class="collection with-header">
+        <form asp-action="Create">
+            <div class="collection-header blue darken-3">
+                <h1 class="white-text">Cirar ingrediente</h1>
+            </div>
+
+            <div class="collection-item">
+                <div asp-validation-summary="ModelOnly" class="red-text text-darken-4"></div>
+
+                <input type="hidden" asp-for="IngredienteId" />
+
+                <div class="collection-item">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input asp-for="NomeMontado" type="text" class="validate" id="nome" />
+                            <label asp-for="NomeMontado" id="nome"></label>
+                            <span class="red-text text-darken-4" asp-validation-for="NomeMontado"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input asp-for="IngrdientesUsados" type="text" class="validate" id="nomeMontado" />
+                            <label id="nomeIngrediente">Ingredientes usados</label>
+                            <span class="red-text text-darken-4" asp-validation-for="IngrdientesUsados"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input asp-for="ValorMontado" type="text" class="validate" id="data" />
+                            <label asp-for="ValorMontado" id="data"></label>
+                            <span class="red-text text-darken-4" asp-validation-for="ValorMontado"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <button type="submit" class="btn-small blue darken-3">Atualziar</button> &emsp;
+                    <a asp-action="Index" asp-controller="Ingrediente">Voltar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

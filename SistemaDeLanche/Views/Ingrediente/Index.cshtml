@@ -1,0 +1,127 @@
+﻿@model IEnumerable<SistemaDeLanche.BLL.Models.Ingrediente>
+
+@{
+    ViewData["Title"] = "Ingredientes cadastrados";
+    string controller = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<div class="tabelas">
+
+    <partial name="_Confirmacoes" />
+
+    <div class="collection with-header">
+        <div class="collection-header grey darken-1">
+            <div class="row">
+                <div class="col s10">
+                    <h1 class="white-text">Ingredientes Cadastrados</h1>
+                </div>
+                <div class="col s2">
+                    <a asp-controller="Ingrediente" asp-action="Create" class="waves-effect waves-light btn-small btn-floating grey darken-4" data-position="right">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="collection-item">
+            <table class="striped highlight reponsive">
+                <thead>
+                    <tr>
+                        <th>
+                            <h5>Nome Ingrediente</h5>
+                        </th>
+                        <th>
+                            <h5>Valor Ingrediente</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeIngrediente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ValorIngrediente)
+                            </td>
+                            <td>
+                                <a asp-controller="Ingrediente" asp-action="Edit" asp-route-id="@item.IngredienteId" class="btn-floating btn-small blue darken-4" data-position="right">
+                                    <i class="material-icons">mode_edit</i>
+                                </a>
+
+                                <a onclick="ConfirmarExclusao(@item.IngredienteId, '@item.NomeIngrediente', '@controller')" class="btn-floating btn-small red darken-4 modal-trigger" data-target="modal" data-position="right">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="collection with-header">
+        <div class="collection-header grey darken-1">
+            <div class="row">
+                <div class="col s10">
+                    <h1 class="white-text">Lanches montados Cadastrados</h1>
+                </div>
+                <div class="col s2">
+                    <a asp-controller="Ingrediente" asp-action="Create" class="waves-effect waves-light btn-small btn-floating grey darken-4" data-position="right">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="collection-item">
+            <table class="striped highlight reponsive">
+                <thead>
+                    <tr>
+                        <th>
+                            <h5>Nome Lache Montado</h5>
+                        </th>
+                        <th>
+                            <h5>Ingredientes usados</h5>
+                        </th>
+                        <th>
+                            <h5>Valor Lanche Montado</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomeMontado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IngrdientesUsados)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValorMontado)
+                        </td>
+                        <td>
+                            <a asp-controller="Ingrediente" asp-action="Edit" asp-route-id="@item.IngredienteId" class="btn-floating btn-small blue darken-4" data-position="right">
+                                <i class="material-icons">mode_edit</i>
+                            </a>
+
+                            <a onclick="ConfirmarExclusao(@item.IngredienteId, '@item.NomeMontado', '@controller')" class="btn-floating btn-small red darken-4 modal-trigger" data-target="modal" data-position="right">
+                                <i class="material-icons">delete_forever</i>
+                            </a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<partial name="_ModalExcluir" />
+
+@section Scripts {
+    <script src="~/js/ConfirmarExclusao.js"></script>
+}
