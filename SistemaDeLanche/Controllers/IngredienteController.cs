@@ -35,7 +35,7 @@ namespace SistemaDeLanche.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IngredienteId,NomeIngrediente,ValorIngrediente,NomeMontado,IngredientesUsados,ValorMontado")] Ingrediente ingrediente)
+        public async Task<IActionResult> Create([Bind("IngredienteId,NomeIngrediente,ValorIngrediente,NomeMontado,IngrdientesUsados,ValorMontado")] Ingrediente ingrediente)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace SistemaDeLanche.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IngredienteId,NomeIngrediente,ValorIngrediente,NomeMontado,IngredientesUsados,ValorMontado")] Ingrediente ingrediente)
+        public async Task<IActionResult> Edit(int id, [Bind("IngredienteId,NomeIngrediente,ValorIngrediente,NomeMontado,IngrdientesUsados,ValorMontado")] Ingrediente ingrediente)
         {
             if (id != ingrediente.IngredienteId)
             {

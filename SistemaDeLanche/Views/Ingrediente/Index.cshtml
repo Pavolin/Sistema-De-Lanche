@@ -38,23 +38,27 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NomeIngrediente)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ValorIngrediente)
-                            </td>
-                            <td>
-                                <a asp-controller="Ingrediente" asp-action="Edit" asp-route-id="@item.IngredienteId" class="btn-floating btn-small blue darken-4" data-position="right">
-                                    <i class="material-icons">mode_edit</i>
-                                </a>
+                        @if (item.NomeIngrediente != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomeIngrediente)
+                                </td>
+                                <td>
+                                    <a>R$</a>
+                                    <a>@Html.DisplayFor(modelItem => item.ValorIngrediente)</a>
+                                </td>
+                                <td>
+                                    <a asp-controller="Ingrediente" asp-action="Edit" asp-route-id="@item.IngredienteId" class="btn-floating btn-small blue darken-4" data-position="right">
+                                        <i class="material-icons">mode_edit</i>
+                                    </a>
 
-                                <a onclick="ConfirmarExclusao(@item.IngredienteId, '@item.NomeIngrediente', '@controller')" class="btn-floating btn-small red darken-4 modal-trigger" data-target="modal" data-position="right">
-                                    <i class="material-icons">delete_forever</i>
-                                </a>
-                            </td>
-                        </tr>
+                                    <a onclick="ConfirmarExclusao(@item.IngredienteId, '@item.NomeIngrediente', '@controller')" class="btn-floating btn-small red darken-4 modal-trigger" data-target="modal" data-position="right">
+                                        <i class="material-icons">delete_forever</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -93,26 +97,30 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NomeMontado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IngrdientesUsados)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ValorMontado)
-                        </td>
-                        <td>
-                            <a asp-controller="Ingrediente" asp-action="Edit" asp-route-id="@item.IngredienteId" class="btn-floating btn-small blue darken-4" data-position="right">
-                                <i class="material-icons">mode_edit</i>
-                            </a>
+                        @if (item.NomeMontado != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomeMontado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IngrdientesUsados)
+                                </td>
+                                <td>
+                                    <a>R$</a>
+                                    @Html.DisplayFor(modelItem => item.ValorMontado)
+                                </td>
+                                <td>
+                                    <a asp-controller="Ingrediente" asp-action="Edit" asp-route-id="@item.IngredienteId" class="btn-floating btn-small blue darken-4" data-position="right">
+                                        <i class="material-icons">mode_edit</i>
+                                    </a>
 
-                            <a onclick="ConfirmarExclusao(@item.IngredienteId, '@item.NomeMontado', '@controller')" class="btn-floating btn-small red darken-4 modal-trigger" data-target="modal" data-position="right">
-                                <i class="material-icons">delete_forever</i>
-                            </a>
-                        </td>
-                    </tr>
+                                    <a onclick="ConfirmarExclusao(@item.IngredienteId, '@item.NomeMontado', '@controller')" class="btn-floating btn-small red darken-4 modal-trigger" data-target="modal" data-position="right">
+                                        <i class="material-icons">delete_forever</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
